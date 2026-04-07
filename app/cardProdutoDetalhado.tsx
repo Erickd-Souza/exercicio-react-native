@@ -8,7 +8,7 @@ export default function  CardDetalhadoProduto() {
 
     return(
         <SafeAreaView style={style.container}>
-            <ScrollView>
+            <ScrollView >
                 <View style={{justifyContent:'space-evenly',maxWidth:800, }}>
                     <View>
                         <Image style={style.imagemProduto} source={{uri: dados.imagemProduto,}}/>
@@ -16,17 +16,21 @@ export default function  CardDetalhadoProduto() {
                     <View style={{padding:10}}>
                         <Text  style={style.titulo}>{dados.nome}</Text>
                     </View>
+                    <View style={{padding:5}}>
+                        <Text style={style.textoPreco}>R${dados.preco.toFixed(2)}</Text>
+                    </View>
                     <View style={style.descricao}>
                         <Text style={style.tituloDescricao}>Descrição</Text>
                         <Text style={style.subtitulo}>{dados.descricao}</Text>
                     </View>
-                    <View style={style.containerButton}>
-                        <TouchableOpacity style={style.botao}>
-                            <Text  style={style.tituloButton}>Comprar</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
             </ScrollView>
+
+            <View style={style.buttonContainer}>
+                <TouchableOpacity style={style.botao}>
+                    <Text  style={style.tituloButton}>Comprar</Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 }
@@ -63,7 +67,7 @@ const style = StyleSheet.create({
     botao:{
         height:45,
         width:320,
-        backgroundColor:"#086DFF",
+        backgroundColor:"#086fff",
         borderRadius:20,
         justifyContent:'center',
         alignItems:'center'
@@ -73,13 +77,21 @@ const style = StyleSheet.create({
         fontWeight:600,
         color:'white'    
     },
-    containerButton:{
-        justifyContent:'center',
+    buttonContainer:{
+        position:'absolute',
+        bottom:20,
+        left:0,
+        right:0,
         alignItems:'center',
-        margin:20
     },
     descricao:{
         padding:10,
-    }
+        marginBottom:80,
+    },
+     textoPreco:{
+        fontWeight:500,
+        fontSize:25,
+        color:'#2E7D32'
+    },
 
 })
